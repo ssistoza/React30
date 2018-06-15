@@ -1,4 +1,6 @@
 import React from 'react';
+import { helper } from './helper';
+import TimerActionButton from './TimerActionButton';
 
 class Timer extends React.Component {
   componentDidMount() {
@@ -14,7 +16,7 @@ class Timer extends React.Component {
   handleTrashClick = () => this.props.onTrashClick(this.props.id);
 
   render() {
-    const elapsedString = helpers.renderElapsedString(
+    const elapsedString = helper.renderElapsedString(
       this.props.elapsed,
       this.props.runningSince
     );

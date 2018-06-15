@@ -1,5 +1,5 @@
 import React from 'react';
-import TimersDashboard from './timer/TimersDashboard';
+import TimersDashboard from '../timer/TimersDashboard';
 
 const Timer = () => (
   <div id="main" class="main ui">

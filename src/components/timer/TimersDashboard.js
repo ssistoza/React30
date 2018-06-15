@@ -1,4 +1,8 @@
 import React from 'react';
+import { helper } from './helper';
+import { client } from './client';
+import EditableTimerList from './EditableTimerList';
+import ToggleableTimerForm from './ToggleableTimerForm';
 
 class TimersDashboard extends React.Component {
   state = {
@@ -55,15 +59,15 @@ class TimersDashboard extends React.Component {
   };
 
   createTimer = timer => {
-    const t = helpers.newTimer(timer);
+    const t = helper.newTimer(timer);
     const timers = this.state.timers.concat(t);
     this.setState({ timers });
-    client.createTimer({ attrs });
+    client.createTimer({ t });
   };
 
   updateTimer = attrs => {
     const timers = this.state.timers.map(timer => {
-      if (timer.id === timerId) {
+      if (timer.id === attrs.id) {
         return Object.assign({}, timer, {
           title: attrs.title,
           project: attrs.project,
@@ -100,6 +104,6 @@ class TimersDashboard extends React.Component {
       </div>
     );
   }
-} // end TimersDashboard
+} // TimersDashboard
 
 export default TimersDashboard;

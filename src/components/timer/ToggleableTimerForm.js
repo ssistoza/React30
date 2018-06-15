@@ -1,4 +1,5 @@
 import React from 'react';
+import TimerForm from './TimerForm';
 
 class ToggleableTimerForm extends React.Component {
   state = {
@@ -7,7 +8,7 @@ class ToggleableTimerForm extends React.Component {
 
   handleFormOpen = () => this.setState({ isOpen: true });
   handleFormClose = () => this.setState({ isOpen: false });
-  handleFormSubmit = () => {
+  handleFormSubmit = timer => {
     this.props.onFormSubmit(timer);
     this.setState({ isOpen: false });
   };

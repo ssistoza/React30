@@ -1,4 +1,6 @@
 import React from 'react';
+import Timer from './Timer';
+import TimerForm from './TimerForm';
 
 class EditableTimer extends React.Component {
   state = {
@@ -17,9 +19,9 @@ class EditableTimer extends React.Component {
 
   render() {
     let toBePassed = {
-      this.props.id,
-      this.props.title,
-      this.props.project,
+      id: this.props.id,
+      title: this.props.title,
+      project: this.props.project,
     };
 
     if (this.state.editFormOpen) {
@@ -31,7 +33,6 @@ class EditableTimer extends React.Component {
         />
       );
     } else {
-
       toBePassed.elapsed = this.props.elapsed;
       toBePassed.runningSince = this.props.runningSince;
 
@@ -43,7 +44,9 @@ class EditableTimer extends React.Component {
           onStartClick={this.props.onStartClick}
           onStopClick={this.props.onStopClick}
         />
-      )
+      );
     }
-  };
+  }
 } // EditableTimer
+
+export default EditableTimer;
