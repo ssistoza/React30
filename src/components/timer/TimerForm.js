@@ -20,7 +20,7 @@ class TimerForm extends React.Component {
     const submitText = this.props.id ? 'Update' : 'Create';
 
     return (
-      <div className="ui cetered card">
+      <div className="ui centered card">
         <div className="content">
           <div className="ui form">
             <div className="field">
@@ -47,7 +47,7 @@ class TimerForm extends React.Component {
                 {submitText}
               </button>
               <button
-                className="ui basic blue button"
+                className="ui basic red button"
                 onClick={this.props.onFormClose}
               >
                 Cancel

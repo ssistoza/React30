@@ -1,10 +1,15 @@
 import React from 'react';
-import { client } from '../timer/client';
 
 class Playground extends React.Component {
   render() {
-    console.log(client.createTimer());
-    return <div>Welcome to React Playground</div>;
+    return (
+      <div className="main ui text container">
+        <h1 className="ui dividing centered header">
+          Welcome to the Playground
+        </h1>
+        <div id="content" />
+      </div>
+    );
   }
 } // Playground
 

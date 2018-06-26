@@ -10,7 +10,7 @@ export const client = {
       .then(success);
   },
   createTimer(data) {
-    return fetch('/api/timers', {
+    return fetch('/api/timers/insert', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
@@ -20,7 +20,7 @@ export const client = {
     }).then(checkStatus);
   },
   updateTimer(data) {
-    return fetch('/api/timers', {
+    return fetch('/api/timers/put', {
       method: 'put',
       body: JSON.stringify(data),
       headers: {
@@ -30,7 +30,7 @@ export const client = {
     }).then(checkStatus);
   },
   deleteTimer(data) {
-    return fetch('/api/timers', {
+    return fetch('/api/timers/delete', {
       method: 'delete',
       body: JSON.stringify(data),
       headers: {

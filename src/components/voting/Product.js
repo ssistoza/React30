@@ -18,7 +18,7 @@ class Product extends React.Component {
     return (
       <div className="item">
         <div className="image">
-          <img src={productImageUrl} />
+          <img src={productImageUrl} alt="product" />
         </div>
         <div className="middle aligned content">
           <div className="header">
@@ -33,7 +33,11 @@ class Product extends React.Component {
           </div>
           <div className="extra">
             <span>Submitted by:</span>
-            <img className="ui avatar image" src={submitterAvatarUrl} />
+            <img
+              className="ui avatar image"
+              src={submitterAvatarUrl}
+              alt="avatar"
+            />
           </div>
         </div>
       </div>

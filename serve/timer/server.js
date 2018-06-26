@@ -7,9 +7,9 @@ const app = express();
 
 const DATA_FILE = path.join(__dirname, 'data.json');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 
-app.use('/', express.static(path.join(__dirname, 'public')));
+// app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -21,13 +21,15 @@ app.use((req, res, next) => {
 });
 
 app.get('/api/timers', (req, res) => {
+  console.log('get');
   fs.readFile(DATA_FILE, (err, data) => {
     res.setHeader('Cache-Control', 'no-cache');
     res.json(JSON.parse(data));
   });
 });
 
-app.post('/api/timers', (req, res) => {
+app.post('/api/timers/insert', (req, res) => {
+  console.log('post');
   fs.readFile(DATA_FILE, (err, data) => {
     const timers = JSON.parse(data);
     const newTimer = {
@@ -46,6 +48,7 @@ app.post('/api/timers', (req, res) => {
 });
 
 app.post('/api/timers/start', (req, res) => {
+  console.log('start');
   fs.readFile(DATA_FILE, (err, data) => {
     const timers = JSON.parse(data);
     timers.forEach(timer => {
@@ -60,6 +63,7 @@ app.post('/api/timers/start', (req, res) => {
 });
 
 app.post('/api/timers/stop', (req, res) => {
+  console.log('stop');
   fs.readFile(DATA_FILE, (err, data) => {
     const timers = JSON.parse(data);
     timers.forEach(timer => {
@@ -75,7 +79,8 @@ app.post('/api/timers/stop', (req, res) => {
   });
 });
 
-app.put('/api/timers', (req, res) => {
+app.put('/api/timers/put', (req, res) => {
+  console.log('put');
   fs.readFile(DATA_FILE, (err, data) => {
     const timers = JSON.parse(data);
     timers.forEach(timer => {
@@ -90,7 +95,8 @@ app.put('/api/timers', (req, res) => {
   });
 });
 
-app.delete('/api/timers', (req, res) => {
+app.delete('/api/timers/delete', (req, res) => {
+  console.log('delete');
   fs.readFile(DATA_FILE, (err, data) => {
     let timers = JSON.parse(data);
     timers = timers.reduce((memo, timer) => {

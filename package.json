@@ -1,7 +1,8 @@
 {
-  "name": "basic-vote",
+  "name": "React30",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
@@ -17,6 +18,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "serve": "node serve/timer/server.js"
+    "serve": "node serve/timer/server.js",
+    "timer":
+      "concurrently -n \"server, react\" \"npm run serve\" \"npm run start\""
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
