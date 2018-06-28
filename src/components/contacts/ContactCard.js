@@ -2,23 +2,24 @@ import React from 'react';
 
 class ContactCard extends React.Component {
   render() {
+    const {
+      first_name,
+      last_name,
+      username,
+      description,
+      adjective,
+    } = this.props.item;
     return (
-      <div className="ui card">
+      <div className="card">
         <div className="image">
-          <img src="" alt="" />
+          <img src={`https://api.adorable.io/avatars/150/${username}`} alt="" />
         </div>
         <div className="content">
-          <a href="" className="header" />
+          <div className="header">{`${first_name} ${last_name}`}</div>
           <div className="meta">
-            <span className="date" />
+            <span>{adjective}</span>
           </div>
-          <div className="description">lorem</div>
-        </div>
-        <div className="extra content">
-          <a href="">
-            <i className="user icon" />
-            22 Friends
-          </a>
+          <div className="description">{description}</div>
         </div>
       </div>
     );

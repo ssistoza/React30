@@ -6,6 +6,8 @@ import Voting from './components/pages/Voting';
 import Timer from './components/pages/Timer';
 import Minesweeper from './components/pages/Minesweeper';
 import SignupSheet from './components/pages/SignupSheet';
+import ContactList from './components/pages/ContactList';
+import NewContact from './components/pages/NewContact';
 
 const ROUTES = [
   {
@@ -34,9 +36,14 @@ const ROUTES = [
     title: 'Sign Up Sheet',
   },
   {
-    path: '/signup',
-    component: SignupSheet,
-    title: 'Sign Up Sheet',
+    path: '/contacts',
+    component: ContactList,
+    title: 'Our ʻOhana',
+  },
+  {
+    path: '/contact-form',
+    component: NewContact,
+    title: 'Become a member',
   },
 ];
 
@@ -88,12 +95,12 @@ const Router = () => {
   return (
     <BrowserRouter>
       <div className="ui grid">
-        <div className="three wide column">
-          <div className="ui secondary vertical pointing menu fixed">
+        <div className="two wide column">
+          <div className="ui secondary vertical pointing menu">
             {generateLinks}
           </div>
         </div>
-        <div className="thirteen wide column">
+        <div className="fourteen wide column">
           <Switch>
             <Route exact path="/" component={Playground} />
             {generateRoutes}

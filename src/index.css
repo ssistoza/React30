@@ -12,3 +12,7 @@
 i.icon {
   margin: 0;
 }
+
+.ui.fixed.menu + .ui.grid {
+  padding-top: 0;
+}
