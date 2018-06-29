@@ -1,10 +1,9 @@
 import React from 'react';
 import ContactCard from './ContactCard';
-import { DATA } from './data';
 
 class Contacts extends React.Component {
   render() {
-    const CONTACTS = DATA.map(item => (
+    const CONTACTS = this.props.contacts.map(item => (
       <ContactCard key={item.id} item={item} />
     ));
 

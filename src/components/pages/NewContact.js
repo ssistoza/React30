@@ -1,44 +1,68 @@
 import React from 'react';
-
-import { DATA } from '../contacts/data';
-
 import ContactForm from '../contacts/ContactForm';
 import NewContactAlert from '../contacts/NewContactAlert';
 
+import base from '../../base';
+
 class NewContact extends React.Component {
   state = {
+    contacts: [],
     isTaken: false,
     isAMember: false,
     isSuccessful: false,
     isNotComplete: false,
   };
 
-  addNewContact = (firstName, lastName, username, birthday) => {
-    // First reset all states.
+  componentDidMount() {
+    base.bindCollection('Ohana', {
+      context: this,
+      state: 'contacts',
+      withRefs: true,
+      query: ref => ref.orderBy('id', 'desc'),
+    });
+  }
+
+  resetState = () => {
     this.setState({
       isTaken: false,
       isAMember: false,
       isSuccessful: false,
       isNotComplete: false,
     });
+  };
 
-    // Map through array.
-    DATA.map(item => {
-      if (firstName === item.firstName && lastName === item.lastName) {
-        this.setState({ isAMember: true });
-      } else if (username === item.username) {
-        this.setState({ isTaken: true });
-      } else if (
-        firstName === '' ||
-        lastName === '' ||
-        username === '' ||
-        birthday === ''
-      ) {
-        this.setState({ isNotComplete: true });
-      } else {
-        this.setState({ isSuccessful: true });
-      }
-    });
+  addNewContact = (firstName, lastName, username, adjective, description) => {
+    const contactsRef = this.state.contacts;
+
+    this.resetState();
+
+    const isAMember = contactsRef.filter(
+      item => firstName === item.firstName && lastName === item.lastName
+    );
+
+    const isTaken = contactsRef.filter(item => username === item.username);
+
+    const isNotComplete =
+      firstName === '' ||
+      lastName === '' ||
+      username === '' ||
+      adjective === '' ||
+      description === '';
+
+    if (isAMember.length > 0) this.setState({ isAMember: true });
+    else if (isTaken.length > 0) this.setState({ isTaken: true });
+    else if (isNotComplete === true) this.setState({ isNotComplete: true });
+    else {
+      base.addToCollection('Ohana', {
+        id: contactsRef.length + 1,
+        first_name: firstName,
+        last_name: lastName,
+        username,
+        adjective,
+        description,
+      });
+      this.setState({ isSuccessful: true });
+    }
   };
 
   render() {

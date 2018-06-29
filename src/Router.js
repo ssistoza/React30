@@ -45,6 +45,11 @@ const ROUTES = [
     component: NewContact,
     title: 'Become a member',
   },
+  {
+    path: '/contact-remove',
+    component: NewContact,
+    title: 'Become a member',
+  },
 ];
 
 const Router = () => {
