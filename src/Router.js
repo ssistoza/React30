@@ -4,10 +4,11 @@ import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import Playground from './components/pages/Playground';
 import Voting from './components/pages/Voting';
 import Timer from './components/pages/Timer';
+import CountdownTimer from './components/pages/CountdownTimer';
 import Minesweeper from './components/pages/Minesweeper';
 import SignupSheet from './components/pages/SignupSheet';
-import ContactList from './components/pages/ContactList';
-import NewContact from './components/pages/NewContact';
+import ContactFormContainer from './components/contacts/ContactFormContainer';
+import ContactListContainer from './components/contacts/ContactListContainer';
 
 const ROUTES = [
   {
@@ -23,7 +24,12 @@ const ROUTES = [
   {
     path: '/timer',
     component: Timer,
-    title: 'Timer',
+    title: 'Timers using Express',
+  },
+  {
+    path: '/countdown-timer',
+    component: CountdownTimer,
+    title: 'Countdown Timer',
   },
   {
     path: '/minesweeper',
@@ -37,17 +43,12 @@ const ROUTES = [
   },
   {
     path: '/contacts',
-    component: ContactList,
-    title: 'Our ʻOhana',
+    component: ContactListContainer,
+    title: 'The Ohana',
   },
   {
     path: '/contact-form',
-    component: NewContact,
-    title: 'Become a member',
-  },
-  {
-    path: '/contact-remove',
-    component: NewContact,
+    component: ContactFormContainer,
     title: 'Become a member',
   },
 ];

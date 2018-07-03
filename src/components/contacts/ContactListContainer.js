@@ -1,8 +1,8 @@
 import React from 'react';
-import ContactList from '../contacts/ContactList';
+import ContactList from './ContactList';
 import base from '../../base';
 
-class ContactList extends React.Component {
+class ContactListContainer extends React.Component {
   state = {
     contacts: [],
   };
@@ -21,13 +21,13 @@ class ContactList extends React.Component {
   render() {
     return (
       <div className="main ui container">
-        <h1 className="ui dividing centered text header">Our &#699;Ohana</h1>
+        <div className="main ui text container"><h1 className="ui dividing centered header">Our &#699;Ohana</h1></div>
         <div id="content">
           <ContactList contacts={this.state.contacts} />
         </div>
       </div>
     );
   }
-} // ContactList
+} // ContactListContainer
 
-export default ContactList;
+export default ContactListContainer;

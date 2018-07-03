@@ -1,6 +1,6 @@
 export const client = {
   getTimers(success) {
-    return fetch('/api/timers', {
+    return fetch('https://ssistoza-timer.glitch.me/api/timers', {
       headers: {
         Accept: 'application/json',
       },
@@ -10,7 +10,7 @@ export const client = {
       .then(success);
   },
   createTimer(data) {
-    return fetch('/api/timers/insert', {
+    return fetch('https://ssistoza-timer.glitch.me/api/timers/', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
@@ -20,7 +20,7 @@ export const client = {
     }).then(checkStatus);
   },
   updateTimer(data) {
-    return fetch('/api/timers/put', {
+    return fetch('https://ssistoza-timer.glitch.me/api/timers/', {
       method: 'put',
       body: JSON.stringify(data),
       headers: {
@@ -30,7 +30,7 @@ export const client = {
     }).then(checkStatus);
   },
   deleteTimer(data) {
-    return fetch('/api/timers/delete', {
+    return fetch('https://ssistoza-timer.glitch.me/api/timers/', {
       method: 'delete',
       body: JSON.stringify(data),
       headers: {
@@ -40,7 +40,7 @@ export const client = {
     }).then(checkStatus);
   },
   startTimer(data) {
-    return fetch('/api/timers/start', {
+    return fetch('https://ssistoza-timer.glitch.me/api/timers/start', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
@@ -50,7 +50,7 @@ export const client = {
     }).then(checkStatus);
   },
   stopTimer(data) {
-    return fetch('/api/timers/stop', {
+    return fetch('https://ssistoza-timer.glitch.me/api/timers/stop', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
