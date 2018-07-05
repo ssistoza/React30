@@ -59,29 +59,13 @@ class ContactFormContainer extends React.Component {
     else if (isTaken.length > 0) this.setState({ isTaken: true });
     else if (isNotComplete === true) this.setState({ isNotComplete: true });
     else {
-      // base.addToCollection('Ohana', {
-      //   id: contactsRef.length + 1,
-      //   first_name: firstName,
-      //   last_name: lastName,
-      //   username,
-      //   adjective,
-      //   description,
-      // });
-
-      const newContact = {
+      base.addToCollection('Ohana', {
         id: contactsRef.length + 1,
         first_name: firstName,
         last_name: lastName,
         username,
         adjective,
         description,
-      };
-
-      const theOhana = [...this.state.contacts, newContact];
-
-      this.setState({
-        contacts: theOhana,
-        isSuccessful: true,
       });
     }
   };

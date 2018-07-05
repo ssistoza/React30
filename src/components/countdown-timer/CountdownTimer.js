@@ -1,8 +1,10 @@
 import React from 'react';
-import { helper } from './helper';
-import TimerActionButton from './TimerActionButton';
+import CountdownTimerActionButton from './CountdownTimerActionButton';
 
-class Timer extends React.Component {
+class CountdownTimer extends React.Component {
+  handleStartClick = () => this.props.onStartClick(this.props.id);
+  handleStopClick = () => this.props.onStopClick(this.props.id);
+
   render() {
     return (
       <div className="ui centered card">
@@ -22,10 +24,15 @@ class Timer extends React.Component {
             </span>
           </div>
         </div>
-        <TimerActionButton />
+
+        <CountdownTimerActionButton
+          timerIsRunning={this.props.running}
+          onStartClick={this.handleStartClick}
+          onStopClick={this.handleStopClick}
+        />
       </div>
     );
   }
-}
+} // CountdownTimer
 
-export default Timer;
+export default CountdownTimer;

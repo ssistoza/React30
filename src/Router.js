@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import Playground from './components/pages/Playground';
 import Voting from './components/pages/Voting';
 import Timer from './components/pages/Timer';
-import CountdownTimer from './components/pages/CountdownTimer';
+import CountdownTimersDashboardContainer from './components/countdown-timer/CountdownTimersDashboardContainer';
 import Minesweeper from './components/pages/Minesweeper';
 import SignupSheet from './components/pages/SignupSheet';
 import ContactFormContainer from './components/contacts/ContactFormContainer';
@@ -28,7 +28,7 @@ const ROUTES = [
   },
   {
     path: '/countdown-timer',
-    component: CountdownTimer,
+    component: CountdownTimersDashboardContainer,
     title: 'Countdown Timer',
   },
   {
