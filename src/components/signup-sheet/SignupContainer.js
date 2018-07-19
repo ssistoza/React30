@@ -1,8 +1,8 @@
 import React from 'react';
-import Form from '../sign-up sheet/Form';
-import List from '../sign-up sheet/List';
+import Form from './Form';
+import List from './List';
 
-class SignupSheet extends React.Component {
+class SignupContainer extends React.Component {
   state = {
     items: [],
   };
@@ -23,6 +23,6 @@ class SignupSheet extends React.Component {
       </div>
     );
   }
-} // SignupSheet
+} // SignupContainer
 
-export default SignupSheet;
+export default SignupContainer;

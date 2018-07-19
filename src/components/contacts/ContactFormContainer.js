@@ -67,6 +67,7 @@ class ContactFormContainer extends React.Component {
         adjective,
         description,
       });
+      this.setState({ isSuccessful: true });
     }
   };
 

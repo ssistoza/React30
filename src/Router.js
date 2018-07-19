@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 
-import Playground from './components/pages/Playground';
-import Voting from './components/pages/Voting';
-import Timer from './components/pages/Timer';
+import Playground from './components/playground/Playground';
+import Voting from './components/voting/Voting';
+import TimersDashboardContainer from './components/timer/TimersDashboardContainer';
 import CountdownTimersDashboardContainer from './components/countdown-timer/CountdownTimersDashboardContainer';
-import Minesweeper from './components/pages/Minesweeper';
-import SignupSheet from './components/pages/SignupSheet';
+import MinesweeperContainer from './components/minesweeper/MinesweeperContainer';
+import SignupContainer from './components/signup-sheet/SignupContainer';
 import ContactFormContainer from './components/contacts/ContactFormContainer';
 import ContactListContainer from './components/contacts/ContactListContainer';
 
@@ -23,8 +23,8 @@ const ROUTES = [
   },
   {
     path: '/timer',
-    component: Timer,
-    title: 'Timers using Express',
+    component: TimersDashboardContainer,
+    title: 'Timetracker',
   },
   {
     path: '/countdown-timer',
@@ -33,12 +33,12 @@ const ROUTES = [
   },
   {
     path: '/minesweeper',
-    component: Minesweeper,
+    component: MinesweeperContainer,
     title: 'Minesweeper',
   },
   {
     path: '/signup',
-    component: SignupSheet,
+    component: SignupContainer,
     title: 'Sign Up Sheet',
   },
   {
